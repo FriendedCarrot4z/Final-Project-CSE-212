@@ -127,17 +127,20 @@ class LinkedList:
         song = self.head
         pygame.mixer.music.load(song.data)
         pygame.mixer.music.play(0) 
+        print(song.data)
         while yes:
-            choice = input("n for next song, p for the last song ")  
+            choice = input("n for next song, p for the last song, r to replace a song and s to start over and q to quit: ")  
             if choice == "n":
                 song = song.next
                 if song is None: 
                     song = self.head
                     pygame.mixer.music.load(song.data)
                     pygame.mixer.music.play(0)
+                    print(song.data)
                 else:
                     pygame.mixer.music.load(song.data)
                     pygame.mixer.music.play(0)
+                    print(song.data)
                 
             if choice == "p":
                 song = song.prev
@@ -145,20 +148,42 @@ class LinkedList:
                     song = self.tail   
                     pygame.mixer.music.load(song.data)
                     pygame.mixer.music.play(0)
+                    print(song.data)
                 else:
                     pygame.mixer.music.load(song.data)
                     pygame.mixer.music.play(0)
+                    print(song.data)
             if choice == "r": 
                 old = input("enter in the old song ")
                 new = input("enter in the new song ")
                 LinkedList.replace(self, old, new)
                 print("replace")
+            
+            if choice == "x":
+                re = input("Enter in the song you wish to remove")
+                remove(re) 
+            
+            if choice == "s":
+                pygame.mixer.music.rewind()
+                pygame.mixer.music.play(0)
+                print("rewinded ", song.data)
+            
+            if choice == "q":
+                yes = False
 
     
 # Sample Test Cases (may not be comprehensive) 
 
 print("\n=========== PROBLEM 1 TESTS ===========")
 ll = LinkedList()
-ll.insert_head("background.wav")
-ll.insert_tail("boom.wav")
+ll.insert_head("Did you Think to Pray.wav")
+ll.insert_tail("His Hands.wav")
+ll.insert_tail("Im Trying to Be like Jesus.wav")
+ll.insert_tail("Israel Israel God Is Calling.wav")
+ll.insert_tail("Lord I Would Follow Thee.wav")
+ll.insert_tail("Nearer My God to Thee.wav")
+ll.insert_tail("O Come All Ye Faithful.wav")
+ll.insert_tail("O Come Emmanuel - Christmas Version - ThePianoGuys.wav")
+ll.insert_tail("Silent Night.wav")
+ll.insert_tail("What Child Is This.wav")
 ll.menu()

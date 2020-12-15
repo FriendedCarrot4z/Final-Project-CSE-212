@@ -20,9 +20,6 @@ class BST:
         else:
             self._insert(data, self.root)  # Start at the root
 
-    #############
-    # Problem 1 #
-    #############
     def _insert(self, data, node):
 
         if data != node.data:
@@ -49,9 +46,6 @@ class BST:
 
         return self._contains(data, self.root)  # Start at the root
 
-    #############
-    # Problem 2 #
-    #############
     def _contains(self, data, node):
  
         pass
@@ -60,7 +54,7 @@ class BST:
 
         yield from self._traverse_forward(self.root)  # Start at the root
         
-    def _traverse_forward(self, node):
+    def _traverse_forward(self, node): #moves from lowest to highest value
 
         if node is not None:
             yield from self._traverse_forward(node.left)
@@ -71,39 +65,13 @@ class BST:
     
         yield from self._traverse_backward(self.root)  # Start at the root
 
-    #############
-    # Problem 3 #
-    #############
-    def _traverse_backward(self, node):
+    def _traverse_backward(self, node): #moves from highest to lowest value
 
         if node is not None:
             yield from self._traverse_backward(node.right)
             yield node.data
             yield from self._traverse_backward(node.left)
              # Replace this when you implement your solution
-
-    def get_height(self):
-
-        if self.root is None:
-            return 0
-        else:
-            return self._get_height(self.root)  # Start at the root
-
-    #############
-    # Problem 4 #
-    #############
-    def _get_height(self, node):
-  
-        if node is None:
-            return 0
-        else:
-            left = self._get_height(node.left)
-            right = self._get_height(node.right)
-            
-            if (left > right):
-                return left + 1
-            else:
-                return right + 1
             
     def average(self):
         length = 0
@@ -117,33 +85,6 @@ class BST:
             
         return int(sum / length)
             
-            
-        
-
-# NOTE: Funtions below are not part of the BST class above. 
-
-def create_bst_from_sorted_list(sorted_list):
- 
-    bst = BST()  # Create an empty BST to start with 
-    _insert_middle(sorted_list, 0, len(sorted_list)-1, bst)
-    return bst
-
-#############
-# Problem 5 #
-#############
-def _insert_middle(sorted_list, first, last, bst):
-  
-    if first > last:
-        return None
-    middle = first + ((last - first) // 2)
-    print(middle)
-    bst.insert(sorted_list[middle])
-    
-    _insert_middle(sorted_list, first, middle - 1, bst )
-    
-    _insert_middle(sorted_list, middle + 1, last, bst)
-       
-    return
 
 # Sample Test Cases (may not be comprehensive) 
 print("\n=========== PROBLEM 1 TESTS ===========")
@@ -158,17 +99,18 @@ tree.insert(25031)
 tree.insert(23789)
 tree.insert(29000)
 tree.insert(24399)
-# for x in tree:
-#     print(x)  # 1, 3, 5, 7, 10
+
+print("list from lowest to highest sales")
+for x in tree:
+    print(x)  
+    
+print("list from highest to lowest sales")
+for x in reversed(tree):
+    print(x)  
+    
+print("average of the sales")
 print(tree.average())
-# sorted_list = ([25000,24899,22199,27890,28001,24321,25031,23789,29000,24399])
-# print("\n=========== PROBLEM 2 TESTS ===========")
-# print(3 in tree) # True
-# print(4 in tree) # False
-
-# print("\n=========== PROBLEM 3 TESTS ===========")
-# for x in reversed(tree):
-#     print(x)  # 10, 7, 5, 3, 1
-
-# print("\n=========== PROBLEM 5 TESTS ===========")
-# tree = create_bst_from_sorted_list(sorted_list)# 7 .. any higher and its not balanced
+aver = tree.average()
+if aver > 25000:
+    diff = aver - 25000
+    print("The cars sold for over their 25000 price by an average of $", diff)

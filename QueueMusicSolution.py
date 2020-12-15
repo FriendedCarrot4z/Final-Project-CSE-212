@@ -91,10 +91,10 @@ class Priority_Queue:
         song = self.dequeue()
         pygame.mixer.music.load(song)
         pygame.mixer.music.play(0)
-        
+        print(song)
+        print("If the song ends, press any key to jump to the next song")
         while true:
             Input = input("p to pause music, u to resume music, r to restart music, e to exit out ")
-            print("If the song ends, press any key to jump to the next song")
             #use keyboard commands instead of inputs
             while pygame.mixer.music.get_busy() == False:
                 if len(self.queue) == 0:
@@ -102,6 +102,7 @@ class Priority_Queue:
                 song = self.dequeue()
                 pygame.mixer.music.load(song)
                 pygame.mixer.music.play(0)
+                print(song)
                 
             if Input == "p":
                 pygame.mixer.music.pause()
@@ -116,12 +117,17 @@ class Priority_Queue:
         
             if Input == "e":
                 true = False
-
-            
-    
-print("hi")
+              
 priority = Priority_Queue()
-priority.enqueue("background.wav", 3)
-priority.enqueue("boom.wav", 2)
-print(priority)
+priority.enqueue("Silent Night.wav", 1)
+priority.enqueue("What Child Is This.wav", 2)
+priority.enqueue("Did you Think to Pray.wav", 3)
+priority.enqueue("His Hands.wav", 4)
+priority.enqueue("Im Trying to Be like Jesus.wav", 5)
+priority.enqueue("Israel Israel God Is Calling.wav", 6)
+priority.enqueue("Lord I Would Follow Thee.wav", 7)
+priority.enqueue("Nearer My God to Thee.wav", 8)
+priority.enqueue("O Come All Ye Faithful.wav", 9)
+priority.enqueue("O Come Emmanuel - Christmas Version - ThePianoGuys.wav", 10)
+
 priority.Play()

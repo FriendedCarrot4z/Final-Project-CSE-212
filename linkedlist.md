@@ -1,4 +1,4 @@
-# Linked Lists
+# Linked Lists (talk about performance of linked lists)
 
 A Linked list is simular to a queue. The difference is with a linked list, you can free tradverse the nodes as they are conected to each other through heads and tails. There is both a single, double and circular versions. Linked lists are the type of data structure you would use to make a music player or keep track of where you been so you can go back. In this tutorial I will explain how linked lists work.
 
@@ -114,6 +114,10 @@ When you reach the end of your linked list and want to keep moving forward or ar
     linked.insert_tail("Manger Sam")
 ```
 
+## Performance
+
+The insert_head function is O(1) along with insert_tail. The removal functions share the same performance. Both a size or if empty operation would also be O(1). If you were to insert or remove a value in the linked list after the head or before the tail the preformance would be O(N)
+
 ## Example
 
 To contiue the linked list example from before, we will say that we need to add someone to the end of the chain of command as well as the top. We will also replace someone and remove another.
@@ -222,3 +226,11 @@ Music queue special requirments
 * Music can be paused and resumed.
 
 * Can replace and delete songs.
+
+[Linked list website problem](LinkedWebSitesProblem.py)
+
+[Linked list website solution](LinkedMusicSolution.py)
+
+[Linked list music problem](LinkedMusicProblem.py)
+
+[Linked list music solution](LinkedMusicSolution.py)

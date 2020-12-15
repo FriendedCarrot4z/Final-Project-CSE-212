@@ -10,7 +10,7 @@ The top node is called the root of the tree. Below it are parents and children. 
 
 !["Example of binary tree"](notBal.png)
 
-Binary Search Trees use the data inputed to balance themselves. They also follow a rule set in which if node is greater then the root it goes to the right of the root and less goes left. Binary Search Trees when balanced use O(log(N)) vs unbalanced O(N). The preformace difference is huge. For the examples we will just look at the Binary Search Trees due to their suppior speeds and efficiency.
+Binary Search Trees use the data inputed to balance themselves. They also follow a rule set in which if node is greater then the root it goes to the right of the root and less goes left. Binary Search Trees when balanced use O(log(N)) vs unbalanced O(N). The preformace difference is huge. For the examples we will just look at the Binary Search Trees due to their suppior performance.
 
 !["Example of binary tree"](searchtree.png)
 
@@ -149,17 +149,31 @@ Note how recurtion is used to move through the tree.
 
 ## Problem Set
 
-There are two problems to be worked on. First is there is a new truck for sall. We will use Binary Search Trees to see how much the truck under sold or over sold for. The second we will use a Binary Search Tree to sort a group of words from smaller to larger words.
+There are two problems to be worked on. First is there is a new truck for sale. We will use Binary Search Trees to see how much the truck under sold or over sold for and find the average. The second we will use a Binary Search Tree to sort different types of music then display a string of them all together.
 The requirments for both Binary Search Trees
 
 * Be able to iterate backwards
 
-* Be able to correctly find the height of the tree
+* Find the length of the tree
 
 * Recersue effectively
+
+Car Search tree special requirment
+
+* display the average of all the sales in the tree
   
 Word Binary Search Tree special requirments
 
 * Words are correctly placed and the tree is balanced correctly.
 
 * Be able to insert into the middle of the tree
+
+* Be able to correctly find the height of the tree
+
+[Car values problem](treeCarsProblems.py)
+
+[Car values solution](treeCarsSolution.py)
+
+[Music types problem](treeMusicProblem.py)
+
+[Music types solution](TreeMusicSolution.py)
